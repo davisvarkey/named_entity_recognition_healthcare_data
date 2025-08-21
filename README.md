@@ -17,3 +17,44 @@ Step 1: Reconstruct full sentences and their corresponding labels from the raw f
 Step 2: Apply the same logic to both training and test datasets.
 
 The image provided illustrates this transformation—from raw word-level input to structured sentence-label pairs.
+
+## 🧠 Linguistic Feature Extraction
+Using the spaCy NLP library:
+
+Load sentences into a spaCy model.
+
+Identify and list the top 25 most frequent NOUN or PROPN tokens.
+
+For each word in a sentence, extract features such as:
+
+Part-of-speech (POS) tag
+
+Prefixes and suffixes
+
+Previous word features
+
+Word shape and casing
+
+These features are used to construct X_train, X_test, Y_train, and Y_test datasets for model training.
+
+## 🔍 Model Training: Conditional Random Field (CRF)
+Model Type: CRF (discriminative probabilistic model for sequence labeling)
+
+Training: Fit the CRF model using the extracted features and labels.
+
+Evaluation: Predict labels on test data and assess performance using standard metrics (e.g., accuracy, F1-score).
+
+## 🧬 Custom NER: Disease and Treatment Identification
+Using the trained CRF model:
+
+Predict Disease (D) or Treatment (T), or Others (O) sequences from  each sentence in the test set.
+
+Construct a dictionary mapping diseases to their associated treatments.
+
+Example Output:
+python
+{
+  "Diabetes": ["Insulin", "Metformin"],
+  "Hypertension": ["Amlodipine", "Lisinopril"]
+}
+Querying: Input a disease name to retrieve its corresponding treatments from the dictionary.
