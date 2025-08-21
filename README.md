@@ -52,9 +52,13 @@ Predict Disease (D) or Treatment (T), or Others (O) sequences from  each sentenc
 Construct a dictionary mapping diseases to their associated treatments.
 
 Example Output:
-python
+
 {
+
   "Diabetes": ["Insulin", "Metformin"],
+
   "Hypertension": ["Amlodipine", "Lisinopril"]
+
 }
+
 Querying: Input a disease name to retrieve its corresponding treatments from the dictionary.
